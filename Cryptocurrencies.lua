@@ -12,13 +12,13 @@
 --  <crypto amount> <crypto currency> @ <fiat purchase price> <fiat purchase currency>
 --
 -- For example:
--- 
+--
 --  1.234 BTC @ 3000.3 USD : 12 ETH @ 100 EUR
 --
--- means that you own 1.234 BTC which you have bought at 3000.3 USD, and 12 ETH 
+-- means that you own 1.234 BTC which you have bought at 3000.3 USD, and 12 ETH
 -- bought at 100 EUR.
 --
--- Since spaces are optional, case doesn't matter, and a comma is treated as a 
+-- Since spaces are optional, case doesn't matter, and a comma is treated as a
 -- dot, you may also write the above as:
 --
 --  1,234btc@3000,3usd:12eth@100eur
@@ -37,7 +37,7 @@ local debug = false -- enter "debug" as the account password the turn on
 local cryptoInfosUrl = "https://www.kraken.com/api/internal/cryptowatch/markets/assets?limit=100&assetName=new&asset="
 local defaultAccountName = "Cryptocurrencies"
 
--- A two dimensional table holding the cryptocurrency assests by [fiatCurrency][cryptoCurrency]. 
+-- A two dimensional table holding the cryptocurrency assests by [fiatCurrency][cryptoCurrency].
 -- Each crypto asset has fields "cryptoAmount" and "fiatAmount", for example:
 --
 --   cryptoAssets["USD"]["BTC"] == {
@@ -73,7 +73,7 @@ function InitializeSession(protocol, bankCode, username, customer, password)
       string.find(string.upper(assetDefinition), "^(%d*[,.]?%d*)(%u+)@(%d*[,.]?%d*)(%u%u%u)$")
 
     if (start == nil) then
-      return "This is not a valid crypto asset definition: " .. assetDefinition 
+      return "This is not a valid crypto asset definition: " .. assetDefinition
         .. " (example: 1.2BTC@200USD)"
     end
 
@@ -120,7 +120,7 @@ function RefreshAccount(account, since)
 
   if not isEmptyTable(cryptoAssetsForFiatCurrency) then
     cryptoInfos = requestCryptoInfos(fiatCurrency)
-    
+
     for cryptoCurrency, asset in pairs(cryptoAssetsForFiatCurrency) do
       cryptoInfo = cryptoInfos[cryptoCurrency]
 
@@ -149,8 +149,8 @@ end
 function EndSession()
 end
 
--- For the supplied fiatCurrency, return a table by [cryptoCurrency], containing 
--- "name" and "price" (in the supplied fiat currency) of all known crypto currencies 
+-- For the supplied fiatCurrency, return a table by [cryptoCurrency], containing
+-- "name" and "price" (in the supplied fiat currency) of all known crypto currencies
 function requestCryptoInfos(fiatCurrency)
   local request = cryptoInfosUrl .. fiatCurrency
   local response = connection:request("GET", request, {}, "", {Accept = "application/json"})
@@ -189,6 +189,8 @@ function isEmptyTable(table)
   for _ in pairs(table) do
     size = size + 1
   end
-  
+
   return size == 0
 end
+
+-- SIGNATURE: MCwCFEHZst3WJVCWZWz55+beNxpvluSvAhQo75pCBFSRZZKv3oqUlat+h/+Yrg==
