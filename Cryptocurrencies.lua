@@ -411,3 +411,5 @@ function isEmptyTable(table)
 
   return size == 0
 end
+
+-- SIGNATURE: MCwCFBvsB/H03Gv+gZ91r4BzD9VigRFEAhR2dTr77Y7gL9/eU8Obxv5xSUOCMQ==
