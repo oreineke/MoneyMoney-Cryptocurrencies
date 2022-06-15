@@ -15,9 +15,9 @@ Also, feel free to check the source code youself.
 
 This extension does *not* collect or share any kind of data.
 
-The only external connect this extension will make is to a kraken.com webservice to query the current prices for *all* available cryptocurrencies in the fiat currencies you use (during a refresh of your securities account).
+The only external connect this extension will make is to a public kraken.com webservice to query the latest price for the cryptocurrencies you entered in the fiat currencies you use (during a refresh of your securities account).
 
-This extension will *not* leak the kind or amount of cryptocurrencies you own to Kraken!
+This extension will *not* leak the amount of cryptocurrencies you own, or the price you bought them at, to Kraken!
 
 ## Installation
 1. Download the file [Cryptocurrencies.lua](https://github.com/oreineke/MoneyMoney-Cryptocurrencies/releases/download/Current/Cryptocurrencies.lua).
@@ -58,6 +58,14 @@ This extension will *not* leak the kind or amount of cryptocurrencies you own to
 If you later want to change you crypto assets, just edit the account login data from one of the cryptocurrency accounts:
 
 ![Update Assets](images/Update%20Assets.png)
+
+# Version History
+
+Version 1.1 
+- Using a more reliable public Kraken ticker API to get current crypto currency prices (= price of last trade)
+
+Version 1.0
+- Initial public release
 
 ## Legal Disclaimer
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
